@@ -1,1 +1,52 @@
-<h1>Hello world.</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ZBD</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta charset="utf-8" />
+    <meta name="description" content="ZBDevelopment" />
+    <meta name="keywords" content="ZBDevelopment,0xberkay,ZBD" />
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+
+      body {
+        padding: 10;
+        background-image: url("/bird.png");
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        background-color: transparent;
+        animation: bird-fly 20s linear infinite;
+      }
+
+      @keyframes bird-fly {
+        from {
+          background-position: 0 50%;
+        }
+        to {
+          background-position: 100% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+      </header>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            title: "ZBD",
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
