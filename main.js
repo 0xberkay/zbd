@@ -1,19 +1,45 @@
 import './style.css'
 import * as THREE from 'three'
 import gsap from 'gsap'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+
 
 // Scene
 const scene = new THREE.Scene()
 
-// Object
+// Object Eye
 const geometry = new THREE.SphereGeometry(3, 64, 64)
 const material = new THREE.MeshStandardMaterial({
   color: "red",
   roughness: 0.4,
-  })
+})
 const sphere = new THREE.Mesh(geometry, material)
+
+
+
+const geometryEye = new THREE.SphereGeometry(0.5, 64, 64)
+const materialEye = new THREE.MeshStandardMaterial({
+  color: "white",
+  roughness: 0.4,
+})
+const sphereEye = new THREE.Mesh(geometryEye, materialEye)
+
+//Irises
+const geometryIris = new THREE.SphereGeometry(0.2, 64, 64)
+const materialIris = new THREE.MeshStandardMaterial({
+  color: "black",
+  roughness: 0.2,
+})
+const sphereIris = new THREE.Mesh(geometryIris, materialIris)
+
+
 scene.add(sphere)
+sphere.add(sphereEye)
+sphereEye.add(sphereIris)
+sphereEye.position.set(2, 0, 2)
+sphereIris.position.set(0.3, 0, 0.3)
+
+
+
 
 
 //Sizes
@@ -23,18 +49,23 @@ const sizes = {
 }
 
 
-const light = new THREE.PointLight(0xffffff, 40, 100)
-light.position.set(0,5,5)
-light.castShadow = true
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(ambientLight);
 
-scene.add(light)
+const directionalLight = new THREE.DirectionalLight(0xffffff);
+directionalLight.position.set(10, 10, 20).normalize();
+scene.add(directionalLight);
+
+const pointLight = new THREE.PointLight(0xffffff, 5, 1);
+pointLight.position.set(10, 10, 20); // Set the position of the light
+scene.add(pointLight);
 
 
 
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000)
+camera.position.set(0, 0, 9)
+camera.lookAt(new THREE.Vector3(0, 0, 0))
 
-// Camera screen
-const camera = new THREE.PerspectiveCamera( 45, sizes.width / sizes.height, 0.1, 100 );
-camera.position.z = 20
 
 // Axes helper
 const axesHelper = new THREE.AxesHelper()
@@ -45,18 +76,17 @@ scene.add(axesHelper)
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
 })
-renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
+renderer.setPixelRatio(window.devicePixelRatio);
+
+renderer.toneMapping = THREE.LinearToneMapping;
+renderer.toneMappingExposure = Math.pow(0.94, 5.0);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFShadowMap;
 
 
-// Controls
-const controls = new OrbitControls(camera, document.querySelector('#bg'))
-controls.enableDamping = true
-controls.autoRotate = true
-controls.autoRotateSpeed = 5
-controls.enablePan = false
-controls.enableZoom = false
+
 
 
 //Window resize
@@ -76,9 +106,7 @@ window.addEventListener('resize', () => {
 
 //Loop
 const tick = () => {
-  //Update controls
-  controls.update()
-
+  
   //Render
   renderer.render(scene, camera)
 
@@ -90,32 +118,33 @@ tick()
 
 
 // Timeline
-const tl = gsap.timeline({defaults: {ease: 'power1.out', duration: 1}})
-tl.fromTo(sphere.scale, {x: 0, y: 0, z: 0}, {x: 1, y: 1, z: 1})
-tl.fromTo("nav", {y: "-100%"}, {y: "0%", duration: 0.5})
+const tl = gsap.timeline({ defaults: { ease: 'power1.out', duration: 1 } })
+// tl.fromTo(sphere.scale, {x: 0, y: 0, z: 0}, {x: 1, y: 1, z: 1})
+tl.fromTo("nav", { y: "-100%" }, { y: "0%", duration: 0.5 })
 
-// Mouse animation color
-let mouseDown = false
 
-window.addEventListener('mousedown', () => {
-  mouseDown = true
-})
-
-window.addEventListener('mouseup', () => {
-  mouseDown = false
-})
 
 window.addEventListener('mousemove', (event) => {
-  if(mouseDown) {
-    const x = event.clientX
-    const y = event.clientY
+  // Calculate the rotation based on the mouse position
+  const rotationX = (event.clientY / sizes.height) * Math.PI - Math.PI / 1.7    
+  const rotationY = (event.clientX / sizes.width) * Math.PI - Math.PI / 1.3
 
-    const centerX = window.innerWidth / 2
-    const centerY = window.innerHeight / 2
-
-    const xAxis = (x - centerX) / 100
-    const yAxis = (y - centerY) / 100
-
-    gsap.to(sphere.material.color,{r: Math.abs(xAxis), g: Math.abs(yAxis), b: Math.abs(xAxis + yAxis)})
-  }
+  // Set the sphere's rotation
+  sphere.rotation.set(rotationX, rotationY, 0);
 })
+
+document.addEventListener('touchmove', (event) => {
+  // Prevent the default touch behavior
+  event.preventDefault();
+
+  // Get the first touch object
+  const touch = event.touches[0];
+
+  // Calculate the rotation based on the touch position
+  const rotationX = (touch.clientY / sizes.height) * Math.PI - Math.PI / 1.7;
+  const rotationY = (touch.clientX / sizes.width) * Math.PI - Math.PI / 1.3;
+
+  // Set the sphere's rotation
+  sphere.rotation.set(rotationX, rotationY, 0);
+
+}, { passive: false });
