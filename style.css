@@ -27,7 +27,7 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 5% 15%;
+	padding: 5% 10%;
 	max-width: 100%;
 	z-index: 100;
 }
@@ -72,6 +72,18 @@ footer {
 	padding: 3% 10%;
 	max-width: 100%;
 	z-index: 100;
+}
+
+/* for small screens */
+@media (max-width: 768px) {
+	nav {
+		flex-direction: column;
+		height: 200px;
+	}
+
+	nav h2 {
+		font-size: 5rem;
+	  }
 }
 
 footer a {
