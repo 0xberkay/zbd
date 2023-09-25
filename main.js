@@ -121,7 +121,7 @@ tick()
 const tl = gsap.timeline({ defaults: { ease: 'power1.out', duration: 1 } })
 tl.fromTo(sphere.scale, {x: 0, y: 0, z: 0}, {x: 1, y: 1, z: 1})
 tl.fromTo("nav", { y: "-100%" }, { y: "0%", duration: 0.5 })
-
+tl.fromTo("footer", { y: "100%" }, { y: "0%", duration: 0.5 }, "-=0.5")
 
 
 window.addEventListener('mousemove', (event) => {
