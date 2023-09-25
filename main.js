@@ -126,11 +126,7 @@ tl.fromTo("nav", { y: "-100%" }, { y: "0%", duration: 0.5 })
 
 window.addEventListener('mousemove', (event) => {
   // Calculate the rotation based on the mouse position
-  const rotationX = (event.clientY / sizes.height) * Math.PI - Math.PI / 1.7    
-  const rotationY = (event.clientX / sizes.width) * Math.PI - Math.PI / 1.3
-
-  // Set the sphere's rotation
-  sphere.rotation.set(rotationX, rotationY, 0);
+  calculateRotation(event.clientX, event.clientY)
 })
 
 document.addEventListener('touchmove', (event) => {
@@ -140,11 +136,16 @@ document.addEventListener('touchmove', (event) => {
   // Get the first touch object
   const touch = event.touches[0];
 
-  // Calculate the rotation based on the touch position
-  const rotationX = (touch.clientY / sizes.height) * Math.PI - Math.PI / 1.7;
-  const rotationY = (touch.clientX / sizes.width) * Math.PI - Math.PI / 1.3;
+  calculateRotation(touch.clientX, touch.clientY);
+
+}, { passive: false });
+
+
+// Calculate the rotation based on the mouse position
+function calculateRotation(x,y) {
+  const rotationX = (y / sizes.height) * Math.PI - Math.PI / 1.7    
+  const rotationY = (x / sizes.width) * Math.PI - Math.PI / 1.3
 
   // Set the sphere's rotation
   sphere.rotation.set(rotationX, rotationY, 0);
-
-}, { passive: false });
+}
