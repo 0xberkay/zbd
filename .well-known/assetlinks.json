@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.zbd.dosuja",
+    "sha256_cert_fingerprints":
+    ["C0:AB:24:50:DB:D6:10:29:4B:4E:0F:F5:89:AE:BD:26:34:ED:BB:90:C1:1E:CA:9B:CC:DD:BB:17:7B:BA:8C:31"]
+  }
+}]
