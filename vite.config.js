@@ -11,6 +11,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         ydsforgePrivacy: resolve(__dirname, 'ydsforge/privacy.html'),
         ydsforgeAccountDeletion: resolve(__dirname, 'ydsforge/account-deletion.html'),
+        wearsshPrivacy: resolve(__dirname, 'wearssh/privacy.html'),
       },
     },
   },

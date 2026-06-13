@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap ve Veri Silme - YDSForge</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 16px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e8e8e8;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+            padding: 0;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            background: #4f46e5;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            min-width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .steps li span {
+            font-size: 0.95rem;
+            padding-top: 4px;
+        }
+
+        .email-box {
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .email-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .email-box a {
+            color: #4f46e5;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .email-box a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        thead tr {
+            background: #4f46e5;
+            color: #fff;
+        }
+
+        thead th {
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f5f5ff;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e8e8e8;
+            vertical-align: top;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .badge-red {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .badge-yellow {
+            background: #fef9c3;
+            color: #92400e;
+        }
+
+        .badge-blue {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .note {
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 16px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.3rem; }
+            .container { padding: 16px; }
+            thead th, tbody td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Hesap ve Veri Silme</h1>
+        <p class="subtitle">YDSForge — Son Güncelleme: 27 Şubat 2026</p>
+
+        <p>YDSForge olarak kullanıcılarımızın kişisel verilerini kontrol etme hakkına saygı duyuyoruz. Bu sayfa, hesabınızı ve verilerinizi nasıl silebileceğinizi açıklar.</p>
+
+        <!-- Uygulama içi silme -->
+        <h2>📱 Uygulama İçinden Hesap Silme</h2>
+        <p>Hesabınızı doğrudan uygulama üzerinden silebilirsiniz:</p>
+
+        <ol class="steps">
+            <li><span>Uygulamayı açın ve hesabınıza giriş yapın.</span></li>
+            <li><span>Sağ üst köşedeki <strong>profil simgesine</strong> dokunun.</span></li>
+            <li><span><strong>Ayarlar</strong> menüsüne gidin.</span></li>
+            <li><span>Sayfanın en altında yer alan <strong>"Hesabı Sil"</strong> seçeneğine dokunun.</span></li>
+            <li><span>Onay ekranında <strong>"Evet, Sil"</strong> butonuna basarak işlemi tamamlayın.</span></li>
+        </ol>
+
+        <!-- E-posta ile talep -->
+        <h2>✉️ E-posta ile Silme Talebi</h2>
+        <p>Uygulamaya erişiminiz yoksa veya hesabınıza giriş yapamıyorsanız, aşağıdaki adrese e-posta göndererek silme talebinde bulunabilirsiniz:</p>
+
+        <div class="email-box">
+            <p>📧 <a href="mailto:me@zbd.com.tr">me@zbd.com.tr</a></p>
+            <p style="margin-top:8px; color:#555;">E-postanızda kayıtlı e-posta adresinizi ve "Hesap Silme Talebi" konusunu belirtmeniz yeterlidir. Talebiniz <strong>7 iş günü</strong> içinde işleme alınır.</p>
+        </div>
+
+        <!-- Anında silinen veriler -->
+        <h2>🗑️ Hesap Silindiğinde Anında Kaldırılan Veriler</h2>
+        <p>Hesabınızı sildiğinizde aşağıdaki veriler <strong>derhal ve kalıcı olarak</strong> silinir:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Veri Türü</th>
+                    <th>Açıklama</th>
+                    <th>Durum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Profil Bilgileri</td>
+                    <td>Ad, e-posta adresi, profil fotoğrafı</td>
+                    <td><span class="badge badge-red">Anında Silinir</span></td>
+                </tr>
+                <tr>
+                    <td>Çalışma Verileri</td>
+                    <td>Tamamlanan testler, soru geçmişi, ilerleme kayıtları</td>
+                    <td><span class="badge badge-red">Anında Silinir</span></td>
+                </tr>
+                <tr>
+                    <td>Ayarlar ve Tercihler</td>
+                    <td>Uygulama içi kişisel ayarlar ve bildirim tercihleri</td>
+                    <td><span class="badge badge-red">Anında Silinir</span></td>
+                </tr>
+                <tr>
+                    <td>Kimlik Doğrulama Kaydı</td>
+                    <td>Firebase Authentication hesap kaydı</td>
+                    <td><span class="badge badge-red">Anında Silinir</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Saklama süresiyle tutulan veriler -->
+        <h2>🕐 Belirli Süre Saklanan Veriler</h2>
+        <p>Yasal yükümlülükler veya teknik gereklilikler nedeniyle bazı veriler sınırlı bir süre daha saklanabilir:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Veri Türü</th>
+                    <th>Saklama Süresi</th>
+                    <th>Neden</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Uygulama Hata Günlükleri (Crashlytics)</td>
+                    <td><span class="badge badge-yellow">90 gün</span></td>
+                    <td>Teknik hata analizi ve uygulama kararlılığı</td>
+                </tr>
+                <tr>
+                    <td>Anonim Kullanım İstatistikleri</td>
+                    <td><span class="badge badge-yellow">90 gün</span></td>
+                    <td>Firebase Analytics — kişisel tanımlayıcı içermez</td>
+                </tr>
+                <tr>
+                    <td>Yedekleme Verileri</td>
+                    <td><span class="badge badge-blue">30 gün</span></td>
+                    <td>Sistem yedekleme döngüsü tamamlanana kadar</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            ⚠️ Saklama süresi dolan tüm veriler otomatik olarak kalıcı biçimde silinir. Bu veriler hiçbir koşulda üçüncü taraflarla paylaşılmaz.
+        </div>
+
+        <!-- İletişim -->
+        <h2>📬 İletişim</h2>
+        <p>Veri silme veya gizlilik konusundaki sorularınız için bizimle iletişime geçebilirsiniz:</p>
+        <div class="email-box">
+            <p>📧 <a href="mailto:me@zbd.com.tr">me@zbd.com.tr</a></p>
+        </div>
+
+        <footer>
+            <p>© 2026 YDSForge · <a href="privacy.html" style="color:#aaa;">Gizlilik Politikası</a></p>
+        </footer>
+
+    </div>
+</body>
+</html>
