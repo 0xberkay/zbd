@@ -12,6 +12,8 @@ export default defineConfig({
         ydsforgePrivacy: resolve(__dirname, 'ydsforge/privacy.html'),
         ydsforgeAccountDeletion: resolve(__dirname, 'ydsforge/account-deletion.html'),
         wearsshPrivacy: resolve(__dirname, 'wearssh/privacy.html'),
+        gateOfAnatolia: resolve(__dirname, 'gate-of-anatolia/index.html'),
+        gateOfAnatoliaPrivacy: resolve(__dirname, 'gate-of-anatolia/privacy.html'),
       },
     },
   },
