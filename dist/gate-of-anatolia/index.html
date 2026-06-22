@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gate Of Anatolia - Pixel Art Dark Fantasy Game" />
+  <meta name="author" content="Zübeyir B. Küçük" />
+  <meta name="robots" content="index,follow" />
+  <meta name="keywords" content="Gate Of Anatolia, game, pixel art, dark fantasy" />
+  <title>Gate Of Anatolia</title>
+  
+  <link rel="stylesheet" href="/assets/style-8c3c15ba.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <nav>
+    <div class="logo">
+      <span class="logo-icon">&#9876;</span>
+      <span class="logo-text">GATE OF ANATOLIA</span>
+    </div>
+    <div class="nav-links">
+      <a href="privacy.html" class="pixel-btn small">Privacy</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <div class="hero-bg-pixel"></div>
+      <h1 class="game-title">
+        <span class="title-line" data-text="GATE OF">GATE OF</span>
+        <span class="title-line accent" data-text="ANATOLIA">ANATOLIA</span>
+      </h1>
+      <p class="subtitle">A Dark Fantasy Pixel Art Adventure</p>
+      <div class="hero-actions">
+        <a href="#" class="pixel-btn primary">&#9654; PLAY NOW</a>
+        <a href="#" class="pixel-btn secondary">&#9432; ABOUT</a>
+      </div>
+    </div>
+
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">&#9876;</div>
+        <h3>Epic Battles</h3>
+        <p>Face ancient horrors in turn-based combat</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9729;</div>
+        <h3>Dark Realms</h3>
+        <p>Explore cursed lands of ancient Anatolia</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9829;</div>
+        <h3>Pixel Art</h3>
+        <p>Hand-crafted pixel art dark fantasy world</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Gate Of Anatolia. No data collected.</p>
+  </footer>
+
+  <script>
+    // Pixel art cursor trail effect
+    document.addEventListener('mousemove', (e) => {
+      const pixel = document.createElement('div');
+      pixel.className = 'pixel-trail';
+      pixel.style.left = e.clientX + 'px';
+      pixel.style.top = e.clientY + 'px';
+      document.body.appendChild(pixel);
+      setTimeout(() => pixel.remove(), 300);
+    });
+  </script>
+</body>
+</html>
