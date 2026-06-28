@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Wet Watch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="water-overlay"></div>
+    <div class="droplets-container" id="droplets"></div>
+
+    <nav>
+        <div class="logo">
+            <span class="logo-icon">&#9747;</span>
+            <span class="logo-text">WET WATCH</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="glass-btn small">&#9664; Back</a>
+        </div>
+    </nav>
+
+    <main class="privacy-main">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: June 28, 2026</p>
+
+        <div class="privacy-content">
+            <h2>1. No Data Collection</h2>
+            <p>
+                <strong>Wet Watch</strong> does not collect, store, process, or transmit any personal data, analytics, or usage information. The game operates entirely on your device with no data sent to any server.
+            </p>
+
+            <h2>2. No Tracking</h2>
+            <p>
+                We do not use cookies, trackers, analytics services, or any form of user monitoring. No third-party scripts are loaded that could collect information about you.
+            </p>
+
+            <h2>3. No Third-Party Services</h2>
+            <p>
+                This game does not integrate with any third-party services, SDKs, APIs, or external platforms that collect data. Everything runs locally in your browser or on your Wear OS device.
+            </p>
+
+            <h2>4. Local Storage</h2>
+            <p>
+                Any game progress, high scores, or settings are saved locally on your device using browser local storage or Wear OS internal storage. This data never leaves your device and is not accessible to us or any third party.
+            </p>
+
+            <h2>5. Permissions</h2>
+            <p>
+                <strong>Wet Watch</strong> does not request any special permissions beyond what is necessary for the game to function. No network permissions, location access, or personal data access is required or used.
+            </p>
+
+            <h2>6. Children's Privacy</h2>
+            <p>
+                Our game is safe for all ages. We do not knowingly collect any personal information from children under 13. As we collect no data whatsoever, there is no risk of unintended data collection from any user.
+            </p>
+
+            <h2>7. Changes to This Privacy Policy</h2>
+            <p>
+                We may update this Privacy Policy from time to time. Changes will be posted on this page and reflected in the "Last updated" date.
+            </p>
+
+            <h2>8. Contact</h2>
+            <p>
+                If you have any questions about this privacy policy, contact us at:<br>
+                Email: me@zbd.com.tr
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Wet Watch. No data collected.</p>
+    </footer>
+
+    <script>
+        // Water droplet animation
+        function createDroplet() {
+            const container = document.getElementById('droplets');
+            const drop = document.createElement('div');
+            drop.className = 'drop';
+            drop.style.left = Math.random() * 100 + '%';
+            drop.style.width = (Math.random() * 4 + 3) + 'px';
+            drop.style.height = drop.style.width;
+            drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            drop.style.animationDelay = (Math.random() * 5) + 's';
+            container.appendChild(drop);
+            setTimeout(() => drop.remove(), 10000);
+        }
+
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createDroplet, i * 400);
+        }
+
+        setInterval(createDroplet, 2500);
+
+        document.addEventListener('mousemove', (e) => {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 800);
+        });
+    </script>
+</body>
+</html>

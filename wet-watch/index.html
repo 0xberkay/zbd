@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wet Watch - Smart Watch Game with Water Theme" />
+  <meta name="author" content="Zübeyir B. Küçük" />
+  <meta name="robots" content="index,follow" />
+  <meta name="keywords" content="Wet Watch, game, smart watch, water, splash" />
+  <title>Wet Watch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="water-overlay"></div>
+  <div class="droplets-container" id="droplets"></div>
+
+  <nav>
+    <div class="logo">
+      <span class="logo-icon">&#9747;</span>
+      <span class="logo-text">WET WATCH</span>
+    </div>
+    <div class="nav-links">
+      <a href="privacy.html" class="glass-btn small">Privacy</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <div class="hero-bg-waves"></div>
+      <h1 class="game-title">
+        <span class="title-line" data-text="WET">WET</span>
+        <span class="title-line accent" data-text="WATCH">WATCH</span>
+      </h1>
+      <p class="subtitle">A Splashy Smart Watch Adventure</p>
+      <div class="hero-actions">
+        <a href="#" class="glass-btn primary">&#9654; PLAY NOW</a>
+        <a href="#" class="glass-btn">&#9432; ABOUT</a>
+      </div>
+    </div>
+
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">&#9747;</div>
+        <h3>Water Splash</h3>
+        <p>Dive into refreshing water-based challenges</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9729;</div>
+        <h3>Smart Watch</h3>
+        <p>Optimized for Wear OS smart watches</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9829;</div>
+        <h3>Endless Fun</h3>
+        <p>Infinite gameplay with rising water levels</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Wet Watch. No data collected.</p>
+  </footer>
+
+  <script>
+    // Water droplet animation
+    function createDroplet() {
+      const container = document.getElementById('droplets');
+      const drop = document.createElement('div');
+      drop.className = 'drop';
+      drop.style.left = Math.random() * 100 + '%';
+      drop.style.width = (Math.random() * 4 + 3) + 'px';
+      drop.style.height = drop.style.width;
+      drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      drop.style.animationDelay = (Math.random() * 5) + 's';
+      container.appendChild(drop);
+      setTimeout(() => drop.remove(), 10000);
+    }
+
+    // Create initial droplets
+    for (let i = 0; i < 20; i++) {
+      setTimeout(createDroplet, i * 300);
+    }
+
+    // Continuously create new droplets
+    setInterval(createDroplet, 2000);
+
+    // Water ripple cursor effect
+    document.addEventListener('mousemove', (e) => {
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      ripple.style.left = e.clientX + 'px';
+      ripple.style.top = e.clientY + 'px';
+      document.body.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 800);
+    });
+  </script>
+</body>
+</html>
