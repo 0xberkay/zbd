@@ -14,6 +14,8 @@ export default defineConfig({
         wearsshPrivacy: resolve(__dirname, 'wearssh/privacy.html'),
         gateOfAnatolia: resolve(__dirname, 'gate-of-anatolia/index.html'),
         gateOfAnatoliaPrivacy: resolve(__dirname, 'gate-of-anatolia/privacy.html'),
+        wetWatch: resolve(__dirname, 'wet-watch/index.html'),
+        wetWatchPrivacy: resolve(__dirname, 'wet-watch/privacy.html'),
       },
     },
   },
