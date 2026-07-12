@@ -16,6 +16,7 @@ export default defineConfig({
         gateOfAnatoliaPrivacy: resolve(__dirname, 'gate-of-anatolia/privacy.html'),
         wetWatch: resolve(__dirname, 'wet-watch/index.html'),
         wetWatchPrivacy: resolve(__dirname, 'wet-watch/privacy.html'),
+        raceToEndPrivacyAlias: resolve(__dirname, 'racetoend/privacy.html'),
         raceToEndPrivacy: resolve(__dirname, 'race-to-end/privacy.html'),
       },
     },
