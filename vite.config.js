@@ -19,6 +19,7 @@ export default defineConfig({
         syncboardPrivacy: resolve(__dirname, 'syncboard/privacy.html'),
         raceToEndPrivacyAlias: resolve(__dirname, 'racetoend/privacy.html'),
         raceToEndPrivacy: resolve(__dirname, 'race-to-end/privacy.html'),
+        wristPowerPrivacy: resolve(__dirname, 'wrist-power/privacy.html'),
       },
     },
   },
