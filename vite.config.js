@@ -9,6 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        kgetPrivacy: resolve(__dirname, 'kget/privacy.html'),
         ydsforgePrivacy: resolve(__dirname, 'ydsforge/privacy.html'),
         ydsforgeAccountDeletion: resolve(__dirname, 'ydsforge/account-deletion.html'),
         wearsshPrivacy: resolve(__dirname, 'wearssh/privacy.html'),
