@@ -23,7 +23,7 @@ export default defineConfig({
         raceToEndPrivacyAlias: resolve(__dirname, 'racetoend/privacy.html'),
         raceToEndPrivacy: resolve(__dirname, 'race-to-end/privacy.html'),
         wristPowerPrivacy: resolve(__dirname, 'wrist-power/privacy.html'),
-        weartemPrivacy: resolve(__dirname, 'weartem/privacy.html'),
+        weartermPrivacy: resolve(__dirname, 'wearterm/privacy.html'),
       },
     },
   },
