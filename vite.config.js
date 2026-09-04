@@ -27,6 +27,7 @@ export default defineConfig({
         wristPowerPrivacy: resolve(__dirname, 'wrist-power/privacy.html'),
         wearterm: resolve(__dirname, 'wearterm/index.html'),
         weartermPrivacy: resolve(__dirname, 'wearterm/privacy.html'),
+        wearbridge: resolve(__dirname, 'wearbridge/index.html'),
         wearbridgePrivacy: resolve(__dirname, 'wearbridge/privacy.html'),
       },
     },
