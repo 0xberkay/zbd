@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && wrangler pages deploy dist --project-name zbd --branch main"
   },
   "devDependencies": {
     "vite": "^4.4.5"
