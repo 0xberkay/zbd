@@ -29,6 +29,7 @@ export default defineConfig({
         weartermPrivacy: resolve(__dirname, 'wearterm/privacy.html'),
         wearbridge: resolve(__dirname, 'wearbridge/index.html'),
         wearbridgePrivacy: resolve(__dirname, 'wearbridge/privacy.html'),
+        wearobdPrivacy: resolve(__dirname, 'wearobd/privacy.html'),
       },
     },
   },
