@@ -26,6 +26,7 @@ export default defineConfig({
         raceToEndPrivacy: resolve(__dirname, 'race-to-end/privacy.html'),
         landToWristPrivacy: resolve(__dirname, 'land-to-wrist/privacy.html'),
         landToWristPrivacyAlias: resolve(__dirname, 'landtowrist/privacy.html'),
+        landToWristCleanPrivacy: resolve(__dirname, 'landtowrist/privacy/index.html'),
         wristPowerPrivacy: resolve(__dirname, 'wrist-power/privacy.html'),
         wearterm: resolve(__dirname, 'wearterm/index.html'),
         weartermPrivacy: resolve(__dirname, 'wearterm/privacy.html'),
