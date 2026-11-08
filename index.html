@@ -35,10 +35,12 @@
   <meta name="robots" content="index,follow" />
   <meta name="keywords" content="ZBDevelopment,0xberkay,ZBD,zbd.com.tr,zbd.com,berkay" />
   <title>ZBD</title>
+  <link rel="preload" as="image" href="/knight.webp" type="image/webp" media="(min-width: 700px) and (pointer: fine)" fetchpriority="high">
+  <link rel="preload" as="image" href="/knight-mobile.webp" type="image/webp" media="(max-width: 699px), (pointer: coarse)" fetchpriority="high">
 </head>
 
 <body>
-  <audio id="theme" src="/themesong.mp3" loop preload="auto"></audio>
+  <audio id="theme" src="/themesong.mp3" loop preload="none"></audio>
 
   <button id="sound" class="sound" aria-label="toggle sound" data-on="false">
     <svg class="ic-off" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
@@ -58,6 +60,8 @@
     <canvas id="scene"></canvas>
 
     <div class="veil"></div>
+
+    <h1 class="sr-only">ZBD</h1>
 
     <section class="content">
       <nav class="links">
